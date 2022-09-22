@@ -1,15 +1,18 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { v4 as uuid } from "uuid";
 
+function ItemForm({ onItemFormSubmit, categoryValue, setCategoryValue, nameValue, setNameValue }) {
 
-function ItemForm({ onItemFormSubmit, name }) {
-  const [categoryValue, setCategoryValue] = useState("Produce")
 
   return (
     <form className="NewItem" onSubmit={onItemFormSubmit}>
       <label>
         Name:
-        <input type="text" name="name" value={name} />
+        <input
+          type="text"
+          name="name"
+          value={nameValue}
+          onChange={(e) => setNameValue(e.target.value)} />
       </label>
 
       <label>
